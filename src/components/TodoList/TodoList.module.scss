@@ -1,19 +1,14 @@
 .todo {
   grid-area: todo;
+  width: 90%;
   padding: 20px;
   display: flex;
   flex-direction: column;
+
   h1 {
     font-size: 22px;
   }
-
-  p {
-    margin-top: -10px;
-    font-size: 14px;
-    color: #91908e;
-  }
 }
-
 
 .backline {
   flex-grow: 1;
@@ -25,17 +20,3 @@
   );
 }
 
-.todoItem {
-  display: flex;
-  align-items: center;
-  height: 50px;
-  border-bottom: 1px solid #f3f2f1;
-  justify-content: space-between;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.btnDel {
-  width: 20px;
-  height: 20px;
-}

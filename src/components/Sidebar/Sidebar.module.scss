@@ -1,4 +1,29 @@
 .side {
   grid-area: side;
   background-color: #f3f2f1;
+
+}
+
+.sidebar {
+  margin-top: 150px;
+}
+
+
+.item a {
+  color: #353331;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.item a.active {
+  color: #0078D7;
+}
+
+.item {
+  padding: 10px;
+}
+
+.item:hover {
+  background-color: #fff;;
+
 }
