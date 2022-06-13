@@ -6,13 +6,13 @@ import {
   setData,
   handleInputChange,
 } from '../../store/slice';
-import TodoListAll from './TodoListAll';
-import TodoListActive from './TodoListActive';
-import TodoListComplited from './TodoListComplited';
-import { Route, Routes } from 'react-router-dom';
+import TodoList from './TodoList';
+import { useLocation } from 'react-router-dom';
+
 
 function TodoListContainer() {
   const dispatch = useDispatch();
+  let url = useLocation().pathname;
 
   useEffect(() => {
     dispatch(getTodoInLocal());
@@ -22,59 +22,36 @@ function TodoListContainer() {
     dispatch(setData(data));
   }, []);
 
-  const todos = useSelector((state) => state.todo.todos),
+  let todos = useSelector((state) => state.todo.todos),
     data = useSelector((state) => state.todo.data);
 
+  switch (url) {
+    case '/active':
+      if (todos.length > 0) {
+        todos = todos.filter((todo) => {
+          debugger;
+          return !todo.isTaskCompleted;
+        });
+      }
+      break;
+    case '/complited':
+      if (todos.length > 0) {
+        todos = todos.filter((todo) => todo.isTaskCompleted);
+      }
+      break;
+    default:
+      break;
+  }
+
+  console.log(todos);
+
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <TodoListAll
-            todos={todos}
-            data={data}
-            deleteTask={deleteTask}
-            handleInputChange={handleInputChange}
-          />
-        }
-      />
-
-      <Route
-        path="all"
-        element={
-          <TodoListAll
-            todos={todos}
-            data={data}
-            deleteTask={deleteTask}
-            handleInputChange={handleInputChange}
-          />
-        }
-      />
-
-      <Route
-        path="active"
-        element={
-          <TodoListActive
-            todos={todos}
-            data={data}
-            deleteTask={deleteTask}
-            handleInputChange={handleInputChange}
-          />
-        }
-      />
-
-      <Route
-        path="complited"
-        element={
-          <TodoListComplited
-            todos={todos}
-            data={data}
-            deleteTask={deleteTask}
-            handleInputChange={handleInputChange}
-          />
-        }
-      />
-    </Routes>
+    <TodoList
+      todos={todos}
+      data={data}
+      deleteTask={deleteTask}
+      handleInputChange={handleInputChange}
+    />
   );
 }
 

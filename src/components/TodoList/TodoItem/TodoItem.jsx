@@ -9,7 +9,7 @@ function TodoItem({ i, todo, deleteTask, handleInputChange }) {
 
   let className = `${s.todoItem}`;
   if (todo.isTaskCompleted) {
-    className += ` ${s.completedTask}`;
+    className += ` ${s.completedTask}`; //stylizing completed todos
   }
 
   return (
