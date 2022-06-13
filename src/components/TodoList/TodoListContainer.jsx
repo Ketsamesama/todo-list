@@ -9,22 +9,7 @@ import {
 import TodoList from './TodoList';
 import { useLocation } from 'react-router-dom';
 
-
-function TodoListContainer() {
-  const dispatch = useDispatch();
-  let url = useLocation().pathname;
-
-  useEffect(() => {
-    dispatch(getTodoInLocal());
-    let data = `${new Date().getDate()} ${
-      new Date().getMonth() + 1
-    } ${new Date().getFullYear()}`;
-    dispatch(setData(data));
-  }, []);
-
-  let todos = useSelector((state) => state.todo.todos),
-    data = useSelector((state) => state.todo.data);
-
+function getActualTodoList(url, todos) {
   switch (url) {
     case '/active':
       if (todos.length > 0) {
@@ -42,9 +27,25 @@ function TodoListContainer() {
     default:
       break;
   }
+  return todos;
+}
 
-  console.log(todos);
+function TodoListContainer() {
+  const dispatch = useDispatch();
+  let url = useLocation().pathname;
 
+  useEffect(() => {
+    dispatch(getTodoInLocal());
+    let data = `${new Date().getDate()} ${
+      new Date().getMonth() + 1
+    } ${new Date().getFullYear()}`;
+    dispatch(setData(data));
+  }, []);
+
+  let todos = useSelector((state) => state.todo.todos),
+    data = useSelector((state) => state.todo.data);
+
+  todos = getActualTodoList(url, todos);
   return (
     <TodoList
       todos={todos}
