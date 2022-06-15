@@ -14,7 +14,6 @@ function getActualTodoList(url, todos) {
     case '/active':
       if (todos.length > 0) {
         todos = todos.filter((todo) => {
-          debugger;
           return !todo.isTaskCompleted;
         });
       }

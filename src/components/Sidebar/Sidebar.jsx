@@ -3,6 +3,7 @@ import s from './Sidebar.module.scss';
 import { NavLink } from 'react-router-dom'
 
 function Sidebar() {
+  console.log('111')
   return (
     <div className={s.side}>
       <nav className={s.sidebar}>

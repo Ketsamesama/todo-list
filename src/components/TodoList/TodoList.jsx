@@ -14,7 +14,7 @@ function TodoList({ todos, data, deleteTask, handleInputChange}) {
       
       { todos.length > 0 ? 
         todos.map((todo, i) => {
-        return <TodoItem todo={todo} i={i} deleteTask={deleteTask} handleInputChange={handleInputChange} />
+        return <TodoItem todo={todo} i={i} deleteTask={deleteTask} handleInputChange={handleInputChange} key={`tidoId${i}`}/>
       })
       : ''
       }
