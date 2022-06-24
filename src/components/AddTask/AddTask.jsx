@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import s from "./AddTask.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import BtnShowInput from "./BtnShowInput";
 import Input from "./Input"
-import { showHideInput, addTodo, updateInput } from "../../store/slice"
+import { addTodo, updateInput } from "../../store/slice"
 
 function AddTask() {
-  const isInputShown = useSelector(state => state.todo.isInputShown),
+  const [ isInputShown, showHideInput] = useState(false),
         input = useSelector(state => state.todo.input),
         dispatch = useDispatch();
-        
   return (
     <>
     {

@@ -5,12 +5,12 @@ import s from "./AddTask.module.scss";
 function BtnShowInput({dispatch, showHideInput}) {
 
   return (
-    <div>
-      <button className={s.btnIcon} onClick={() => dispatch(showHideInput())} >
+    <form onSubmit={(e) => {e.preventDefault(); showHideInput(true)}}>
+      <button className={s.btnIcon}>
         <img src={plus} alt="добавить"></img>
       </button>
-      <button className={s.btnText} onClick={() => dispatch(showHideInput())}>Добавить задачу</button>
-    </div>
+      <button className={s.btnText}>Добавить задачу</button>
+    </form>
   );
 }
 

@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  isInputShown: false,
   todos: [],
   input: '',
   data: '',
@@ -24,16 +23,12 @@ export const todoSlice = createSlice({
         state.todos = JSON.parse(todoLocal);
       }
     },
-    showHideInput(state) {
-      state.isInputShown = !state.isInputShown;
-    },
     addTodo(state) {
       if (state.input.trim()) {
         const newTask = {
           description: state.input,
           isTaskCompleted: false,
         };
-        console.log(state);
         state.todos.push(newTask);
         state.input = '';
         localStorage.setItem('todo', JSON.stringify(state.todos));
@@ -51,22 +46,21 @@ export const todoSlice = createSlice({
       data = data.map((item) => setZiro(item));
       state.data = data.join('.');
     },
-    handleInputChange(state, action) {
+    toggleComplitedActive(state, action) {
       const i = action.payload;
       state.todos[i].isTaskCompleted = !state.todos[i].isTaskCompleted;
       state.input = '';
       localStorage.setItem('todo', JSON.stringify(state.todos));
-    },
+    }
   },
 });
 
 export const {
-  showHideInput,
   addTodo,
   updateInput,
   getTodoInLocal,
   deleteTask,
   setData,
-  handleInputChange,
+  toggleComplitedActive,
 } = todoSlice.actions;
 export default todoSlice.reducer;

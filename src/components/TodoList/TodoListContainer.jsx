@@ -4,34 +4,34 @@ import {
   getTodoInLocal,
   deleteTask,
   setData,
-  handleInputChange,
+  toggleComplitedActive,
 } from '../../store/slice';
 import TodoList from './TodoList';
 import { useLocation } from 'react-router-dom';
 
-function getActualTodoList(url, todos) {
-  switch (url) {
-    case '/active':
-      if (todos.length > 0) {
-        todos = todos.filter((todo) => {
-          return !todo.isTaskCompleted;
-        });
-      }
-      break;
-    case '/complited':
-      if (todos.length > 0) {
-        todos = todos.filter((todo) => todo.isTaskCompleted);
-      }
-      break;
-    default:
-      break;
-  }
-  return todos;
-}
-
 function TodoListContainer() {
   const dispatch = useDispatch();
   let url = useLocation().pathname;
+
+  function getActualTodoList(url, todos) {
+    switch (url) {
+      case '/active':
+        if (todos.length > 0) {
+          todos = todos.filter((todo) => {
+            return !todo.isTaskCompleted;
+          });
+        }
+        break;
+      case '/complited':
+        if (todos.length > 0) {
+          todos = todos.filter((todo) => todo.isTaskCompleted);
+        }
+        break;
+      default:
+        break;
+    }
+    return todos;
+  }
 
   useEffect(() => {
     dispatch(getTodoInLocal());
@@ -42,15 +42,15 @@ function TodoListContainer() {
   }, []);
 
   let todos = useSelector((state) => state.todo.todos),
-    data = useSelector((state) => state.todo.data);
-
+       data = useSelector((state) => state.todo.data);
+       
   todos = getActualTodoList(url, todos);
   return (
     <TodoList
       todos={todos}
       data={data}
       deleteTask={deleteTask}
-      handleInputChange={handleInputChange}
+      toggleComplitedActive={toggleComplitedActive}
     />
   );
 }

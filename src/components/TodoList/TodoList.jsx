@@ -5,19 +5,20 @@ import AddTask from "../AddTask/AddTask";
 import Header from './Header/Header'
 import TodoItem from "./TodoItem/TodoItem";
 
-function TodoList({ todos, data, deleteTask, handleInputChange}) {
+function TodoList({ todos, data, deleteTask, toggleComplitedActive}) {
 
   return (
     <div className={s.todo}>
       <Header data={data}/>
       <AddTask />
-      
+      <ul>
       { todos.length > 0 ? 
         todos.map((todo, i) => {
-        return <TodoItem todo={todo} i={i} deleteTask={deleteTask} handleInputChange={handleInputChange} key={`tidoId${i}`}/>
+        return <TodoItem todo={todo} i={i} deleteTask={deleteTask} toggleComplitedActive={toggleComplitedActive} key={`tidoId${i}`}/>
       })
       : ''
       }
+      </ul>
 
     <div className={s.backline}></div>
     </div>

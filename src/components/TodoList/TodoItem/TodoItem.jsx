@@ -3,7 +3,7 @@ import Delete from '../../../assets/delete.svg';
 import s from './TodoItem.module.scss';
 import { useDispatch } from 'react-redux';
 
-function TodoItem({ i, todo, deleteTask, handleInputChange }) {
+function TodoItem({ i, todo, deleteTask, toggleComplitedActive }) {
 
   const dispatch = useDispatch();
 
@@ -11,21 +11,21 @@ function TodoItem({ i, todo, deleteTask, handleInputChange }) {
   if (todo.isTaskCompleted) {
     className += ` ${s.completedTask}`; //stylizing completed todos
   }
-
+  
   return (
-    <div className={className} key={i}>
+    <li className={className} key={i}>
       <label>
         <input type="checkbox"
          className={s.chekbox}
          checked={todo.isTaskCompleted}
-         onChange={() => dispatch(handleInputChange(i))} />
+         onChange={() => dispatch(toggleComplitedActive(i))} />
         <span className={s.fake}></span>
         <p className={s.description}>{todo.description}</p>
       </label>
       <button className={s.btnDel} onClick={() => dispatch(deleteTask(i))}>
         <img src={Delete} alt="удалить"></img>
       </button>
-    </div>
+    </li>
   );
 }
 
