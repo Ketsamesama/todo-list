@@ -1,8 +1,8 @@
 import React from 'react';
-import s from './Sidebar.module.scss';
-import { NavLink } from 'react-router-dom'
 
-function Sidebar() {  
+import { NavLink } from 'react-router-dom';
+import s from './Sidebar.module.scss';
+function Sidebar() {
   return (
     <div className={s.side}>
       <nav className={s.sidebar}>

@@ -1,0 +1,18 @@
+@import './style/normalize.scss';
+@import './style/variable.scss';
+@import url('https://rsms.me/inter/inter.css');
+html {
+  font-family: 'Inter', sans-serif;
+}
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: 'Inter var', sans-serif;
+  }
+}
+
+.app {
+  display: grid;
+  grid-template-areas: 'side todo';
+  grid-template-columns: 1fr 4fr;
+  height: 100vh;
+}

@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+
 import {
   getTodoInLocal,
   deleteTask,
@@ -7,8 +9,6 @@ import {
   toggleComplitedActive,
 } from '../../store/slice';
 import TodoList from './TodoList';
-import { useLocation } from 'react-router-dom';
-
 function TodoListContainer() {
   const dispatch = useDispatch();
   let url = useLocation().pathname;
@@ -42,8 +42,8 @@ function TodoListContainer() {
   }, []);
 
   let todos = useSelector((state) => state.todo.todos),
-       data = useSelector((state) => state.todo.data);
-       
+    data = useSelector((state) => state.todo.data);
+
   todos = getActualTodoList(url, todos);
   return (
     <TodoList
