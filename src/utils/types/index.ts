@@ -35,6 +35,14 @@ interface IPropsTodoItem {
   toggleComplitedActive: (i: number) => Action;
 }
 
+interface IPrposHeader {
+  data: string;
+}
+
+interface IPropsBtn {
+  showHideInput: (state: boolean) => void;
+}
+
 export type {
   ItoggleComplitedActive,
   ITask,
@@ -42,4 +50,6 @@ export type {
   IPropsInput,
   IPropsTodoList,
   IPropsTodoItem,
+  IPrposHeader,
+  IPropsBtn,
 };

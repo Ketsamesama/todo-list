@@ -1,13 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 
+import type { IPropsBtn } from 'utils/types';
 import plus from 'assets/plus.svg';
 import s from './AddTask.module.scss';
 
-interface IProps {
-  showHideInput: (state: boolean) => void;
-}
-
-const BtnShowInput: React.FC<IProps> = ({ showHideInput }) => {
+const BtnShowInput: FC<IPropsBtn> = ({ showHideInput }) => {
   return (
     <form
       onSubmit={(e) => {

@@ -1,7 +1,8 @@
+import React from 'react';
+
 import { NavLink } from 'react-router-dom';
 
 import { appPath } from 'utils/path';
-
 import s from './Sidebar.module.scss';
 
 function Sidebar() {
@@ -11,7 +12,7 @@ function Sidebar() {
     <div className={s.side}>
       <nav className={s.sidebar}>
         {linkList.map((link, i) => (
-          <div className={s.item}>
+          <div className={s.item} key={link}>
             <NavLink
               to={appPath[i]}
               className={({ isActive }) => (isActive ? s.active : '')}

@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
+
 import { useAppDispatch } from 'hooks';
-import type { IPropsTodoItem } from 'components/types';
+import type { IPropsTodoItem } from 'utils/types';
 
 import Delete from 'assets/delete.svg';
 import s from './TodoItem.module.scss';

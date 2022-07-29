@@ -1,13 +1,11 @@
 .side {
   grid-area: side;
-  background-color: #f3f2f1;
-
+  background-color: var(--primary-color);
 }
 
 .sidebar {
   margin-top: 150px;
 }
-
 
 .item a {
   color: #353331;
@@ -17,7 +15,7 @@
 }
 
 .item a.active {
-  color: #0078D7;
+  color: var(--secondaty-color);
 }
 
 .item {
@@ -25,6 +23,5 @@
 }
 
 .item:hover {
-  background-color: #fff;;
-
+  background-color: #fff;
 }

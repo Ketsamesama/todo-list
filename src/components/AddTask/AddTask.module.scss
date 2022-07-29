@@ -1,8 +1,8 @@
 .add {
-  background-color: #f3f2f1;
+  background-color: var(--primary-color);
   height: 50px;
   border-radius: 8px;
-  color: #0078d7;
+  color: var(--secondaty-color);
   display: flex;
   align-items: center;
   position: relative;
@@ -25,7 +25,6 @@
   padding-top: 10px;
 }
 
-
 input {
   display: block;
   width: 100%;
@@ -41,7 +40,7 @@ input {
   background-color: #fff;
   background-clip: padding-box;
   border: 0 solid #bdbdbd;
-  border-bottom: 1px solid #0078d7;
+  border-bottom: 1px solid var(--secondaty-color);
 }
 
 .btnAddTask {

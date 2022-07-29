@@ -1,11 +1,9 @@
 import React, { FC } from 'react';
+
+import type { IPrposHeader } from 'utils/types';
 import s from './Header.module.scss';
 
-interface IPrpos {
-  data: string;
-}
-
-const Header: FC<IPrpos> = ({ data }) => {
+const Header: FC<IPrposHeader> = ({ data }) => {
   return (
     <>
       <h1>Мой день</h1>

@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
+
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { useLocation } from 'react-router-dom';
-import type { ITask } from 'components/types';
 
+import { getActualTodoList, getData } from 'utils/helpers';
 import {
   getTodoInLocal,
   deleteTask,
@@ -11,26 +12,6 @@ import {
 } from 'store/slice/slice';
 import TodoList from './TodoList';
 
-function getActualTodoList(url: string, todos: ITask[] | []) {
-  switch (url) {
-    case '/active':
-      if (todos.length > 0) {
-        todos = todos.filter((todo) => {
-          return !todo.isTaskCompleted;
-        });
-      }
-      break;
-    case '/complited':
-      if (todos.length > 0) {
-        todos = todos.filter((todo) => todo.isTaskCompleted);
-      }
-      break;
-    default:
-      break;
-  }
-  return todos;
-}
-
 function TodoListContainer() {
   const dispatch = useAppDispatch();
 
@@ -38,10 +19,7 @@ function TodoListContainer() {
 
   useEffect(() => {
     dispatch(getTodoInLocal());
-
-    const data = `${new Date().getDate()} ${
-      new Date().getMonth() + 1
-    } ${new Date().getFullYear()}`;
+    const data = getData();
     dispatch(setData(data));
   }, []);
 

@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 
-import s from './TodoList.module.scss';
 import AddTask from '../AddTask/AddTask';
 import Header from './Header/Header';
 import TodoItem from './TodoItem/TodoItem';
+import type { IPropsTodoList } from 'utils/types';
 
-import type { IPropsTodoList } from 'components/types';
+import s from './TodoList.module.scss';
 
 const TodoList: FC<IPropsTodoList> = ({
   todos,

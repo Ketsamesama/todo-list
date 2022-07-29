@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { useAppDispatch, useAppSelector } from 'hooks';
 
-import s from './AddTask.module.scss';
+import { useAppDispatch, useAppSelector } from 'hooks';
+import { addTodo, updateInput } from 'store/slice/slice';
+
 import BtnShowInput from './BtnShowInput';
 import Input from './Input';
-import { addTodo, updateInput } from 'store/slice/slice';
+
+import s from './AddTask.module.scss';
 
 function AddTask() {
   const [isInputShown, showHideInput] = useState<boolean>(false);
