@@ -7,6 +7,8 @@ import TodoListContainer from '../components/TodoList/TodoListContainer';
 import Sidebar from '../components/Sidebar/Sidebar';
 import store from 'store';
 
+// вынеси импорт store после библиотек
+
 import './index.scss';
 
 const App = () => {

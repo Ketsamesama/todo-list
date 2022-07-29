@@ -10,6 +10,7 @@ import s from './AddTask.module.scss';
 
 function AddTask() {
   const [isInputShown, showHideInput] = useState<boolean>(false);
+  // лучше вынести в отдельный файл селекторов
   const input = useAppSelector((state) => state.todo.input);
   const dispatch = useAppDispatch();
 

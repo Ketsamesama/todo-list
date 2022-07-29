@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import { IPropsInput } from 'utils/types';
 import s from './AddTask.module.scss';
 
+// смтори BtnShowInput
 const Input: FC<IPropsInput> = ({ input, dispatch, updateInput, addTodo }) => {
   return (
     <>

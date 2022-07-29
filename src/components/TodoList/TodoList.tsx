@@ -5,8 +5,11 @@ import Header from './Header/Header';
 import TodoItem from './TodoItem/TodoItem';
 import type { IPropsTodoList } from 'utils/types';
 
+// импортируй типы до компонент
+
 import s from './TodoList.module.scss';
 
+// смтори BtnShowInput
 const TodoList: FC<IPropsTodoList> = ({
   todos,
   data,
@@ -32,6 +35,8 @@ const TodoList: FC<IPropsTodoList> = ({
           })}
       </ul>
 
+
+      {/* сразу закрывай такой тэг <div className={s.backline} />*/}
       <div className={s.backline}></div>
     </div>
   );

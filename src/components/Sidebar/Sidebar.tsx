@@ -15,6 +15,7 @@ function Sidebar() {
           <div className={s.item} key={link}>
             <NavLink
               to={appPath[i]}
+              // у NavLink есть собсвенный проп activeClassName, используй лучше его
               className={({ isActive }) => (isActive ? s.active : '')}
             >
               {link}
