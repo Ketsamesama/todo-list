@@ -5,9 +5,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 import TodoListContainer from '../components/TodoList/TodoListContainer';
 import Sidebar from '../components/Sidebar/Sidebar';
-import store from 'store';
 
-// вынеси импорт store после библиотек
+import store from 'store';
 
 import './index.scss';
 

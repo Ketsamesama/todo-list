@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 
-import { useAppDispatch, useAppSelector } from 'hooks';
 import { useLocation } from 'react-router-dom';
 
+import { useAppDispatch, useAppSelector } from 'hooks';
+import { todosSelector, dataSelector } from 'selectors';
 import { getActualTodoList, getData } from 'utils/helpers';
 import {
   getTodoInLocal,
@@ -13,9 +14,11 @@ import {
 import TodoList from './TodoList';
 
 function TodoListContainer() {
+  let todos = useAppSelector(todosSelector);
+  const data = useAppSelector(dataSelector);
+
   const dispatch = useAppDispatch();
-  // здесь переменная нигде не переназначается лучше объявить ее const
-  let url = useLocation().pathname;
+  const url = useLocation().pathname;
 
   useEffect(() => {
     dispatch(getTodoInLocal());
@@ -23,13 +26,7 @@ function TodoListContainer() {
     dispatch(setData(data));
   }, []);
 
-  // лучше вынести в отдельные файл селекторы
-  // и лучше не менять данные через let, на самом деле легче создать просто две константы
-  // и вынеси объявление этих данных в самое начало функции
-  let todos = useAppSelector((state) => state.todo.todos);
-  const data = useAppSelector((state) => state.todo.data);
-
-  todos = getActualTodoList(url, todos);
+  todos = getActualTodoList(url, todos); //филттруем список задач в зависимости от url
   return (
     <TodoList
       todos={todos}

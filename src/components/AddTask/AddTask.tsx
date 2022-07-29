@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { addTodo, updateInput } from 'store/slice/slice';
 
+import { inputSelector } from 'selectors';
 import BtnShowInput from './BtnShowInput';
 import Input from './Input';
 
@@ -10,8 +11,8 @@ import s from './AddTask.module.scss';
 
 function AddTask() {
   const [isInputShown, showHideInput] = useState<boolean>(false);
-  // лучше вынести в отдельный файл селекторов
-  const input = useAppSelector((state) => state.todo.input);
+
+  const input = useAppSelector(inputSelector);
   const dispatch = useAppDispatch();
 
   return (
