@@ -1,7 +1,7 @@
 import type { ITask } from 'utils/types';
 import { appPath } from 'utils/path';
 
-const [active, complited] = appPath;
+const [_, active, complited] = appPath;
 
 function getActualTodoList(url: string, todos: ITask[] | []) {
   switch (url) {
