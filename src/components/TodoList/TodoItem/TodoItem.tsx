@@ -1,11 +1,17 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { FC } from 'react';
+import { useAppDispatch } from 'hooks';
+import type { IPropsTodoItem } from 'components/types';
 
-import Delete from '../../../assets/delete.svg';
+import Delete from 'assets/delete.svg';
 import s from './TodoItem.module.scss';
 
-function TodoItem({ i, todo, deleteTask, toggleComplitedActive }) {
-  const dispatch = useDispatch();
+const TodoItem: FC<IPropsTodoItem> = ({
+  i,
+  todo,
+  deleteTask,
+  toggleComplitedActive,
+}) => {
+  const dispatch = useAppDispatch();
 
   let className = `${s.todoItem}`;
   if (todo.isTaskCompleted) {
@@ -29,6 +35,6 @@ function TodoItem({ i, todo, deleteTask, toggleComplitedActive }) {
       </button>
     </li>
   );
-}
+};
 
 export default TodoItem;

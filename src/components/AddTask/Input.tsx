@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import s from './AddTask.module.scss';
+import { IPropsInput } from 'components/types';
 
-function Input({ input, dispatch, updateInput, addTodo }) {
+const Input: FC<IPropsInput> = ({ input, dispatch, updateInput, addTodo }) => {
   return (
     <>
       <form
@@ -21,6 +22,6 @@ function Input({ input, dispatch, updateInput, addTodo }) {
       </form>
     </>
   );
-}
+};
 
 export default Input;

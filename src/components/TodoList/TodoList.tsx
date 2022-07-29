@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import s from './TodoList.module.scss';
 import AddTask from '../AddTask/AddTask';
 import Header from './Header/Header';
 import TodoItem from './TodoItem/TodoItem';
 
-function TodoList({ todos, data, deleteTask, toggleComplitedActive }) {
+import type { IPropsTodoList } from 'components/types';
+
+const TodoList: FC<IPropsTodoList> = ({
+  todos,
+  data,
+  deleteTask,
+  toggleComplitedActive,
+}) => {
   return (
     <div className={s.todo}>
       <Header data={data} />
@@ -28,6 +35,6 @@ function TodoList({ todos, data, deleteTask, toggleComplitedActive }) {
       <div className={s.backline}></div>
     </div>
   );
-}
+};
 
 export default TodoList;

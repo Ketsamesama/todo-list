@@ -1,9 +1,13 @@
 import React from 'react';
 
-import plus from '../../assets/plus.svg';
+import plus from 'assets/plus.svg';
 import s from './AddTask.module.scss';
 
-function BtnShowInput({ dispatch, showHideInput }) {
+interface IProps {
+  showHideInput: (state: boolean) => void;
+}
+
+const BtnShowInput: React.FC<IProps> = ({ showHideInput }) => {
   return (
     <form
       onSubmit={(e) => {
@@ -17,6 +21,6 @@ function BtnShowInput({ dispatch, showHideInput }) {
       <button className={s.btnText}>Добавить задачу</button>
     </form>
   );
-}
+};
 
 export default BtnShowInput;
