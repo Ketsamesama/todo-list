@@ -10,3 +10,10 @@ html {
     font-family: 'Inter var', sans-serif;
   }
 }
+
+.app {
+  display: grid;
+  grid-template-areas: 'side todo';
+  grid-template-columns: 1fr 4fr;
+  height: 100vh;
+}
