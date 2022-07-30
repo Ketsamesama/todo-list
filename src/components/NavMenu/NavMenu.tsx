@@ -12,14 +12,13 @@ const NavMenu = () => {
     <nav>
       <ul>
         {linkList.map((link, i) => (
-          <li key={link}>
-            <NavLink
-              to={appPath[i]}
-              className={({ isActive }) => (isActive ? 'active' : undefined)}
-            >
-              {link}
-            </NavLink>
-          </li>
+          <NavLink
+            key={link}
+            to={appPath[i]}
+            className={({ isActive }) => (isActive ? 'active' : undefined)}
+          >
+            <li>{link}</li>
+          </NavLink>
         ))}
       </ul>
     </nav>

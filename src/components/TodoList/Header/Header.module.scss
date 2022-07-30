@@ -18,16 +18,18 @@
     ul {
       display: flex;
       justify-content: center;
-      li {
-        list-style-type: none;
-
+      a {
         &:nth-child(2) {
           margin: 0 10px;
         }
 
-        a {
-          &.active {
-            background-color: red;
+        li {
+          list-style-type: none;
+
+          a {
+            &.active {
+              background-color: red;
+            }
           }
         }
       }
