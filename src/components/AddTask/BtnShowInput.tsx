@@ -1,8 +1,6 @@
 import React, { FC } from 'react';
 
 import type { IPropsBtn } from 'utils/types';
-
-import plus from 'assets/plus.svg';
 import s from './AddTask.module.scss';
 
 const BtnShowInput: FC<IPropsBtn> = ({ showHideInput }) => (
@@ -12,9 +10,7 @@ const BtnShowInput: FC<IPropsBtn> = ({ showHideInput }) => (
       showHideInput(true);
     }}
   >
-    <button className={s.btnIcon}>
-      <img src={plus} alt="добавить"></img>
-    </button>
+    <button className={s.btnIcon}>+</button>
     <button className={s.btnText}>Добавить задачу</button>
   </form>
 );

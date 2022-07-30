@@ -26,7 +26,7 @@ const TodoList: FC<IPropsTodoList> = ({
               i={i}
               deleteTask={deleteTask}
               toggleComplitedActive={toggleComplitedActive}
-              key={`tidoId${i}`}
+              key={todo.description + i}
             />
           );
         })}

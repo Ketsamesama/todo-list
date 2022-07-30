@@ -26,7 +26,7 @@ export const todoSlice = createSlice({
           description: state.input,
           isTaskCompleted: false,
         };
-        state.todos.push(newTask);
+        state.todos.unshift(newTask);
         state.input = '';
         localStorage.setItem('todo', JSON.stringify(state.todos));
       }

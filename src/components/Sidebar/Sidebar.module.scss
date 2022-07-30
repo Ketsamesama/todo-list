@@ -1,27 +1,38 @@
-.side {
+.sidebar {
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 1050px) {
+    width: 210px;
+  }
+
   grid-area: side;
   background-color: var(--primary-color);
-}
+  position: fixed;
+  height: 100vh;
+  width: 20%;
 
-.sidebar {
-  margin-top: 150px;
+  nav {
+    margin-top: 150px;
+    ul {
+      padding: 0;
+      display: block;
+      width: 100%;
+      li {
+        padding: 10px;
+        list-style-type: none;
+        display: block;
+        &:hover {
+          background-color: #fff;
+        }
+      }
+    }
+  }
 }
-
-.item a {
+a {
   color: #353331;
   font-weight: 600;
   text-decoration: none;
   display: block;
-}
-
-.item a.active {
-  color: var(--secondaty-color);
-}
-
-.item {
-  padding: 10px;
-}
-
-.item:hover {
-  background-color: #fff;
 }

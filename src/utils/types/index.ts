@@ -2,11 +2,6 @@ import { PayloadAction } from '@reduxjs/toolkit';
 
 type ItoggleComplitedActive = (i: number) => void;
 
-interface ITask {
-  description: string;
-  isTaskCompleted: boolean;
-}
-
 type Action = {
   type: string;
   payload?: any;
@@ -14,11 +9,17 @@ type Action = {
 
 type Dispatch = (arg0: Action, arg2?: PayloadAction<string | number>) => void;
 
+interface ITask {
+  description: string;
+  isTaskCompleted: boolean;
+}
+
 interface IPropsInput {
   input: string;
   dispatch: Dispatch;
   updateInput: (arg0: string) => Action;
   addTodo: () => Action;
+  showHideInput: (state: boolean) => void;
 }
 
 interface IPropsTodoList {

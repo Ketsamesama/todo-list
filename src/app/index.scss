@@ -2,18 +2,25 @@
 @import './style/variable.scss';
 @import url('https://rsms.me/inter/inter.css');
 
-html {
-  font-family: 'Inter', sans-serif;
-}
-@supports (font-variation-settings: normal) {
-  html {
-    font-family: 'Inter var', sans-serif;
-  }
-}
-
 .app {
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
   display: grid;
   grid-template-areas: 'side todo';
   grid-template-columns: 1fr 4fr;
   height: 100vh;
+  max-width: 1050px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+body {
+  background-color: var(--primary-color);
+  font-family: 'Inter', sans-serif;
+  @supports (font-variation-settings: normal) {
+    html {
+      font-family: 'Inter var', sans-serif;
+    }
+  }
 }

@@ -1,3 +1,40 @@
+.header {
+  @media screen and (max-width: 768px) {
+    text-align: center;
+  }
+
+  nav {
+    margin-bottom: 6px;
+
+    display: none;
+    justify-content: center;
+    @media screen and (max-width: 768px) {
+      display: block;
+    }
+    @media screen and (max-width: 305px) {
+      display: block;
+      overflow-x: scroll;
+    }
+    ul {
+      display: flex;
+      justify-content: center;
+      li {
+        list-style-type: none;
+
+        &:nth-child(2) {
+          margin: 0 10px;
+        }
+
+        a {
+          &.active {
+            background-color: red;
+          }
+        }
+      }
+    }
+  }
+}
+
 .data {
   margin-top: -10px;
   font-size: 14px;

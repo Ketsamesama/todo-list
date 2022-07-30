@@ -19,6 +19,8 @@ const TodoItem: FC<IPropsTodoItem> = ({
     : `${s.todoItem}`;
 
   const handleDelete = () => dispatch(deleteTask(i));
+
+  const onToggle = () => dispatch(toggleComplitedActive(i));
   return (
     <li className={className}>
       <label>
@@ -26,7 +28,7 @@ const TodoItem: FC<IPropsTodoItem> = ({
           type="checkbox"
           className={s.chekbox}
           checked={todo.isTaskCompleted}
-          onChange={() => dispatch(toggleComplitedActive(i))}
+          onChange={onToggle}
         />
         <span className={s.fake} />
         <p className={s.description}>{todo.description}</p>

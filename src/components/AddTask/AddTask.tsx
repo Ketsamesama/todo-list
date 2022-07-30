@@ -28,6 +28,7 @@ function AddTask() {
             dispatch={dispatch}
             updateInput={updateInput}
             addTodo={addTodo}
+            showHideInput={showHideInput}
           />
         </div>
       )}
