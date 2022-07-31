@@ -1,7 +1,7 @@
 import React from 'react';
 
-import s from './Sidebar.module.scss';
 import NavMenu from 'components/NavMenu/NavMenu';
+import s from './Sidebar.module.scss';
 
 const Sidebar = () => (
   <div className={s.sidebar}>
