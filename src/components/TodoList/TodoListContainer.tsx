@@ -33,8 +33,6 @@ function TodoListContainer() {
     dispatch(setData(data));
   }, []);
 
-  useEffect(() => {}, [url]);
-
   todos = getActualTodoList(url, todos);
   return (
     <>
