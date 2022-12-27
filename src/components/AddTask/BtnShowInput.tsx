@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import type { IPropsBtn } from 'utils/types';
+import type { IPropsBtn } from './types';
 import s from './AddTask.module.scss';
 
 const BtnShowInput: FC<IPropsBtn> = ({ showHideInput }) => (

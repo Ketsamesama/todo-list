@@ -1,7 +1,8 @@
-import type { ITask } from 'utils/types';
-import { appPath } from 'utils/path';
+import type {ITask} from 'store';
+import {appPath} from 'utils/path';
 
-const [_, active, complited] = appPath;
+const path = appPath.map((item => item.path))
+const [_, active, completed] = path;
 
 function getActualTodoList(url: string, todos: ITask[] | []) {
   switch (url) {
@@ -12,7 +13,7 @@ function getActualTodoList(url: string, todos: ITask[] | []) {
         });
       }
       break;
-    case complited:
+    case completed:
       if (todos.length > 0) {
         todos = todos.filter((todo) => todo.isTaskCompleted);
       }
@@ -22,11 +23,9 @@ function getActualTodoList(url: string, todos: ITask[] | []) {
 }
 
 function getData() {
-  const data = `${new Date().getDate()} ${
-    new Date().getMonth() + 1
+  return `${new Date().getDate()} ${
+      new Date().getMonth() + 1
   } ${new Date().getFullYear()}`;
-
-  return data;
 }
 
 export { getActualTodoList, getData };

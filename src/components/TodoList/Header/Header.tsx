@@ -1,11 +1,13 @@
-import NavMenu from 'components/NavMenu/NavMenu';
 import React, { FC } from 'react';
 
-import type { IPrposHeader } from 'utils/types';
-
+import NavMenu from 'components/NavMenu/NavMenu';
 import s from './Header.module.scss';
 
-const Header: FC<IPrposHeader> = ({ data }) => {
+interface IProsHeader {
+    data: string;
+}
+
+const Header: FC<IProsHeader> = ({ data }) => {
   return (
     <div className={s.header}>
       <h1>Мой день</h1>
