@@ -14,7 +14,7 @@ const NavMenu = () => {
         {linkList.map((link, i) => (
           <NavLink
             key={link}
-            to={appPath[i]}
+            to={appPath[i].path}
             className={({ isActive }) => (isActive ? 'active' : undefined)}
           >
             <li>{link}</li>

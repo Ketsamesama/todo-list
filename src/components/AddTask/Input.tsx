@@ -1,22 +1,19 @@
 import React, { FC } from 'react';
+import { observer } from 'mobx-react-lite';
 
-import { IPropsInput } from 'utils/types';
+import TodoStore from 'store';
+
+import { IPropsInput } from './types';
 import s from './AddTask.module.scss';
 
-const Input: FC<IPropsInput> = ({
-  input,
-  dispatch,
-  updateInput,
-  addTodo,
-  showHideInput,
-}) => {
+const Input: FC<IPropsInput> = observer(({ showHideInput }) => {
   const leaveInput = () => {
     showHideInput(false);
-    dispatch(updateInput(''));
+    TodoStore.updateInput('');
   };
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(updateInput(e.target.value));
+    TodoStore.updateInput(e.target.value);
   };
 
   const onKeyDownInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -33,24 +30,24 @@ const Input: FC<IPropsInput> = ({
 
   const onSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(addTodo());
+    TodoStore.addTodo();
   };
 
   return (
-    <>
-      <form className={s.inputForm} onSubmit={onSubmitForm}>
-        <input
-          placeholder="Добавить задачу"
-          value={input}
-          onChange={onChangeInput}
-          autoFocus={true}
-          onBlur={OnBlurInput}
-          onKeyDown={onKeyDownInput}
-        />
-        <button className={s.btnAddTask}>Добавить</button>
-      </form>
-    </>
+      <>
+        <form className={s.inputForm} onSubmit={onSubmitForm}>
+          <input
+              placeholder="Добавить задачу"
+              value={TodoStore.input}
+              onChange={onChangeInput}
+              autoFocus={true}
+              onBlur={OnBlurInput}
+              onKeyDown={onKeyDownInput}
+          />
+          <button className={s.btnAddTask}>Добавить</button>
+        </form>
+      </>
   );
-};
+});
 
 export default Input;
